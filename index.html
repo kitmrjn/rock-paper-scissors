@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissor</title>
+</head>
+<body>
+    
+    <script>
+
+        let humanScore = 0;
+        let computerScore = 0;
+        function getComputerChoice (computerChoice) {
+
+            computerChoice = Math.floor(Math.random() * 10);
+
+            if (computerChoice > 5) {
+                computerChoice = "scissors"
+            } else if (computerChoice === 0) {
+                computerChoice = "rock";
+            } else if (computerChoice < 5){
+                computerChoice = "paper";
+            } 
+            console.log("The computer choose: " + computerChoice);
+        } 
+
+        getComputerChoice();
+
+        function getHumanChoice (humanChoice) {
+
+            humanChoice =  prompt("Enter p for paper, r for rock, s for scissor",);
+
+            if (humanChoice == "p") {
+                humanChoice = "paper";
+            } else if (humanChoice == "r") {
+                humanChoice = "rock";
+            } else if (humanChoice == "s") {
+                humanChoice = "scissor";
+            }
+            console.log("You choose: " + humanChoice);
+        }
+        
+        getHumanChoice();
+
+        
+    </script>
+</body>
+</html>

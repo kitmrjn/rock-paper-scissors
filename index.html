@@ -9,48 +9,58 @@
     
     <script>
 
-        let humanScore = 0;
-        let computerScore = 0;
-
-        function playRound () {
-
-        }
+        const humanSelect = getHumanChoice ();
+        const computerSelect = getComputerChoice ();
 
          function getHumanChoice () {
 
-            humanChoice =  prompt("Enter p for paper, r for rock, s for scissor",);
+           let humanChoice =  prompt("Enter your choice",);
+           console.log(`You choose: ${humanChoice}`)
 
-            if (humanChoice == "p") {
-                humanChoice = "paper";
-            } else if (humanChoice == "r") {
-                humanChoice = "rock";
-            } else if (humanChoice == "s") {
-                humanChoice = "scissor";
-            }
-             return humanChoice;
+           humanChoice = humanChoice.toLowerCase();
+
+           return humanChoice;
+
         }
-        
-        console.log ("You Choose: " + getHumanChoice());
-
         
         function getComputerChoice () {
 
-            computerChoice = Math.floor(Math.random() * 10);
+           let computerChoice = Math.floor(Math.random() * 10);
 
             if (computerChoice > 5) {
-                computerChoice = "scissors"
+                computerChoice = "scissor"
             } else if (computerChoice === 0) {
                 computerChoice = "rock";
-            } else if (computerChoice < 5){
+            } else if (computerChoice <= 5){
                 computerChoice = "paper";
             } 
-             return computerChoice
+            console.log(`Computer choose: ${computerChoice}`);
+             return computerChoice;
         } 
-
-        console.log("Computer Choose: " + getComputerChoice());
-
-       
         
+
+
+        function playRound (firstChoice, secondChoice) {
+            if (firstChoice === secondChoice) {
+                console.log("draw");
+            } else if (firstChoice === "rock" && secondChoice === "scissor") {
+                console.log(`You win ${firstChoice} beats ${secondChoice}`);
+            } else if (firstChoice === "paper" && secondChoice === "rock") {
+                console.log(`You win ${firstChoice} beats ${secondChoice}`);
+            } else if (firstChoice === "scissor" && secondChoice === "paper") {
+                console.log(`You win ${firstChoice} beats ${secondChoice}`);
+            } else if (firstChoice === "rock" && secondChoice === "paper") {
+                console.log(`Computer wins ${firstChoice} lose to ${secondChoice}`);
+            } else if (firstChoice === "paper" && secondChoice === "scissor") {
+                console.log(`Computer wins ${firstChoice} lose to ${secondChoice}`);
+            } else if (firstChoice === "scissor" && secondChoice === "rock") {
+                console.log(`Computer wins ${firstChoice} lose to ${secondChoice}`);
+            } return;
+        }
+        
+        playRound(humanSelect, computerSelect);
+    
+
     </script>
 </body>
 </html>

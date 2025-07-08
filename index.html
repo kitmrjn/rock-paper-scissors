@@ -11,23 +11,12 @@
 
         let humanScore = 0;
         let computerScore = 0;
-        function getComputerChoice (computerChoice) {
 
-            computerChoice = Math.floor(Math.random() * 10);
+        function playRound () {
 
-            if (computerChoice > 5) {
-                computerChoice = "scissors"
-            } else if (computerChoice === 0) {
-                computerChoice = "rock";
-            } else if (computerChoice < 5){
-                computerChoice = "paper";
-            } 
-            console.log("The computer choose: " + computerChoice);
-        } 
+        }
 
-        getComputerChoice();
-
-        function getHumanChoice (humanChoice) {
+         function getHumanChoice () {
 
             humanChoice =  prompt("Enter p for paper, r for rock, s for scissor",);
 
@@ -38,11 +27,29 @@
             } else if (humanChoice == "s") {
                 humanChoice = "scissor";
             }
-            console.log("You choose: " + humanChoice);
+             return humanChoice;
         }
         
-        getHumanChoice();
+        console.log ("You Choose: " + getHumanChoice());
 
+        
+        function getComputerChoice () {
+
+            computerChoice = Math.floor(Math.random() * 10);
+
+            if (computerChoice > 5) {
+                computerChoice = "scissors"
+            } else if (computerChoice === 0) {
+                computerChoice = "rock";
+            } else if (computerChoice < 5){
+                computerChoice = "paper";
+            } 
+             return computerChoice
+        } 
+
+        console.log("Computer Choose: " + getComputerChoice());
+
+       
         
     </script>
 </body>

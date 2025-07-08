@@ -9,8 +9,8 @@
     
     <script>
 
-        const humanSelect = getHumanChoice ();
-        const computerSelect = getComputerChoice ();
+        let humanScore = 0;
+        let computerScore = 0;
 
          function getHumanChoice () {
 
@@ -45,20 +45,46 @@
                 console.log("draw");
             } else if (firstChoice === "rock" && secondChoice === "scissor") {
                 console.log(`You win ${firstChoice} beats ${secondChoice}`);
+                ++humanScore;
             } else if (firstChoice === "paper" && secondChoice === "rock") {
                 console.log(`You win ${firstChoice} beats ${secondChoice}`);
+                ++humanScore;
             } else if (firstChoice === "scissor" && secondChoice === "paper") {
                 console.log(`You win ${firstChoice} beats ${secondChoice}`);
+                ++humanScore;
             } else if (firstChoice === "rock" && secondChoice === "paper") {
                 console.log(`Computer wins ${firstChoice} lose to ${secondChoice}`);
+                ++computerScore;
             } else if (firstChoice === "paper" && secondChoice === "scissor") {
                 console.log(`Computer wins ${firstChoice} lose to ${secondChoice}`);
+                ++computerScore;
             } else if (firstChoice === "scissor" && secondChoice === "rock") {
                 console.log(`Computer wins ${firstChoice} lose to ${secondChoice}`);
-            } return;
+                ++computerScore;
+            } 
+            console.log(`Your Score: ${humanScore}`);
+            console.log(`Computer Score: ${computerScore}`);
         }
+
+        for(let i = 0; i < 5; i++){
+            playRound(getHumanChoice(), getComputerChoice());
+        }
+
+        function playGame () {
+            if (humanScore > computerScore) {
+                console.log(`Player wins with ${humanScore} - ${computerScore}`);
+            } else if (humanScore < computerScore) {
+                console.log(`Computer wins with ${computerScore} - ${humanScore}`);
+            } else {
+                console.log("No one wins, it's a tie!")
+            }
+        }
+
+        playGame();
         
-        playRound(humanSelect, computerSelect);
+
+
+        
     
 
     </script>
